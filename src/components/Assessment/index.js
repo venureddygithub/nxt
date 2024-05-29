@@ -140,7 +140,9 @@ class Assessment extends Component {
     const hours = Math.floor(timer / 3600)
     const minutes = Math.floor(timer / 60)
     const seconds = timer % 60
-    const formattedTimer = `${hours.toString().padStart(2, '0')}:${minutes
+    const formattedTimer = `${hours
+      .toString()
+      .padStart(2, '0')}:${minutes
       .toString()
       .padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`
 
@@ -199,7 +201,6 @@ class Assessment extends Component {
     const {
       assessmentQuestion,
       currentQuestionIndex,
-      selectedOption,
       isCorrectOptionClicked,
       isAnyOptionClicked,
     } = this.state
@@ -262,16 +263,24 @@ class Assessment extends Component {
       <div className="assessment-summary">
         <div className="answered-unanswered-card">
           <div className="answered">
-            <p className="answered-span">{answeredQuestionsCount}</p>
-            <p>Answered Questions</p>
+            <div className="count-text-position">
+              <p className="answered-span">{answeredQuestionsCount}</p>
+            </div>
+            <div className="count-text-position">
+              <p>Answered Questions</p>
+            </div>
           </div>
-          <p className="unanswered">
-            <p className="unanswered-span">
-              {' '}
-              {assessmentQuestion.length - answeredQuestionsCount}
-            </p>{' '}
-            Unanswered Questions
-          </p>
+          <div className="unanswered">
+            <div className="count-text-position">
+              <p className="unanswered-span">
+                {' '}
+                {assessmentQuestion.length - answeredQuestionsCount}
+              </p>{' '}
+            </div>
+            <div className="count-text-position">
+              <p>Unanswered Questions</p>
+            </div>
+          </div>
         </div>
         <hr className="summary-horizontal-line" />
         <div className="question-submit-btn-card">
@@ -306,7 +315,6 @@ class Assessment extends Component {
       isClickedQuestionNumber,
       isCorrectOptionClicked,
       selectedOption,
-      score,
     } = this.state
     let show = true
     console.log('eiei', currentQuestionIndex)
@@ -396,7 +404,6 @@ class Assessment extends Component {
           </>
         )}
         <div className="btn-card">
-          <p>{score}</p>
           {show && (
             <button
               type="button"

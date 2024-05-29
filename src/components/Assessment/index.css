@@ -273,7 +273,12 @@
   text-align: center;
   padding: 5px;
 }
-
+.count-text-position{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  margin:5px;
+}
 .unanswered {
   font-family: 'Roboto';
   font-size: 14px;
